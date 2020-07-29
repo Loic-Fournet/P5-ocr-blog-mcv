@@ -2,12 +2,7 @@
 
 namespace Core;
 
-/**
- * Base controller
- *
- * PHP version 7.0
- */
-abstract class Controller
+abstract class Frontcontroller
 {
 
     /**

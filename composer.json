@@ -1,6 +1,7 @@
 {
     "require": {
-        "twig/twig": "~3.0"
+        "twig/twig": "~3.0",
+        "vlucas/spot2": "^2.2"
     },
     "autoload": {
         "psr-4": {
