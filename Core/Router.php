@@ -2,34 +2,12 @@
 
 namespace Core;
 
-/**
- * Router
- *
- * PHP version 7.0
- */
 class Router
 {
-
-    /**
-     * Associative array of routes (the routing table)
-     * @var array
-     */
     protected $routes = [];
 
-    /**
-     * Parameters from the matched route
-     * @var array
-     */
     protected $params = [];
 
-    /**
-     * Add a route to the routing table
-     *
-     * @param string $route  The route URL
-     * @param array  $params Parameters (controller, action, etc.)
-     *
-     * @return void
-     */
     public function add($route, $params = [])
     {
         // Convert the route to a regular expression: escape forward slashes
@@ -47,11 +25,6 @@ class Router
         $this->routes[$route] = $params;
     }
 
-    /**
-     * Get all the routes from the routing table
-     *
-     * @return array
-     */
     public function getRoutes()
     {
         return $this->routes;
@@ -59,15 +32,12 @@ class Router
 
     /**
      * Match the route to the routes in the routing table, setting the $params
-     * property if a route is found.
-     *
-     * @param string $url The route URL
-     *
-     * @return boolean  true if a match found, false otherwise
+     * property if a route is found
      */
     public function match($url)
     {
         foreach ($this->routes as $route => $params) {
+            var_dump("test");
             if (preg_match($route, $url, $matches)) {
                 // Get named capture group values
                 foreach ($matches as $key => $match) {
@@ -107,6 +77,7 @@ class Router
         $url = $this->removeQueryStringVariables($url);
 
         if ($this->match($url)) {
+            var_dump("test-02");
             $controller = $this->params['controller'];
             $controller = $this->convertToStudlyCaps($controller);
             $controller = $this->getNamespace() . $controller;

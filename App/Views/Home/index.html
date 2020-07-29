@@ -4,6 +4,14 @@
 
 {% block body %}
 
-    <h1>Welcome</h1>
+    <h1>Accueil</h1>
+
+    {% for getArticle in article %}
+        test
+        <h2>{{ getArticle.title }}</h2>
+    {% else %}
+        test boucle
+    {% endfor %}
+
 
 {% endblock %}
