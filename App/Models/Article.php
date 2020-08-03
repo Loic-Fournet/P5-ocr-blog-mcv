@@ -21,17 +21,3 @@ class Article extends \Spot\Entity
         ];
     }
 }
-
-public function getArticle()
-{
-    $articleMapper = spot()->mapper('Models\Article');
-    $articleMapper->migrate();
-    $getArticle = $articleMapper->all();
-
-    echo $this->twig->render('Views/Home/index.html',
-        [
-            "getArticle" => $getArticle,
-        ]
-    );
-}
-
