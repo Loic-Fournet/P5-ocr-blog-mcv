@@ -1,17 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Blog{% endblock %}
 
 {% block body %}
 
     <h1>Accueil</h1>
 
-    {% for getArticle in article %}
-        test
+    {% for article in getArticle %}
         <h2>{{ getArticle.title }}</h2>
     {% else %}
-        test boucle
-    {% endfor %}
 
 
 {% endblock %}
